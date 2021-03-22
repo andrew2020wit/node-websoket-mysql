@@ -10,6 +10,8 @@
   "author": "Andrew2020wit",
   "license": "ISC",
   "dependencies": {
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.1",
     "ws": "^7.3.1"
   }
 }
