@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket: addEventListener</title>
+  </head>
+  <body>
+    <h1>WebSocket: addEventListener</h1>
+    <script>
+      let count = 1;
+
+      // create socket
+      const socket = new WebSocket("ws://localhost:8081");
+
+      // Event "open"
+      socket.addEventListener("open", function (event) {
+        console.log("socket opened");
+        sendHello(socket);
+      });
+
+      // Event "close"
+      socket.addEventListener("close", function (event) {
+        console.log("socket closed");
+      });
+
+      // Event "error"
+      socket.addEventListener("error", function (event) {
+        console.log("socket error");
+      });
+
+      // Event "message"
+      socket.addEventListener("message", function (event) {
+        console.log("Message from server: ", event.data);
+      });
+
+      setInterval(() => {
+        count++;
+        socket.send(`interval client message #${count}`);
+      }, 800);
+
+      function sendHello(socketV) {
+        socketV.send("Hello from client!");
+        console.log("sent hello.");
+      }
+    </script>
+  </body>
+</html>

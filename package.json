@@ -1,0 +1,15 @@
+{
+  "name": "node-ws",
+  "version": "1.0.0",
+  "description": "node + websocket(ws)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "Andrew2020wit",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^7.3.1"
+  }
+}
