@@ -1,5 +1,5 @@
 {
-  "name": "node-ws",
+  "name": "node-ws-mysql",
   "version": "1.0.0",
   "description": "node + websocket(ws)",
   "main": "app.js",

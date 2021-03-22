@@ -8,7 +8,7 @@
   <body>
     <h1>WebSocket: onmessage</h1>
     <script>
-      let count = 1;
+      let count = 0;
 
       // create socket
       const socket = new WebSocket("ws://localhost:8081");
@@ -16,7 +16,6 @@
       // Event "open"
       socket.onopen = function (event) {
         console.log("socket opened");
-        sendHello(socket);
       };
 
       // Event "close"
@@ -26,23 +25,13 @@
 
       // Event "error"
       socket.onerror = function (event) {
-        console.log("socket error");
-      };
-
-      // Event "message"
-      socket.onmessage = function (event) {
-        console.log("Message from server: ", event.data);
+        console.error("socket error, event:", event);
       };
 
       setInterval(() => {
         count++;
         socket.send(`interval client message #${count}`);
       }, 800);
-
-      function sendHello(socketV) {
-        socketV.send("Hello from client!");
-        console.log("sent hello.");
-      }
     </script>
   </body>
 </html>
